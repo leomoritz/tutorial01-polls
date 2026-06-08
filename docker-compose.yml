@@ -1,0 +1,15 @@
+services:
+  # Cria um serviço chamado "web" que será construído usando o Dockerfile localizado no diretório atual.
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile # Especifica o caminho para o Dockerfile que será usado para construir a imagem do contêiner. Neste caso, o Dockerfile está localizado no diretório atual.
+    container_name: tutorial01_polls_web # Define um nome específico para o contêiner, facilitando a identificação e gerenciamento do contêiner em vez de usar um nome gerado automaticamente.
+    ports:
+      - "8000:8000" # Mapeia a porta 8000 do contêiner para a porta 8000 do host, permitindo que o servidor de desenvolvimento do Django seja acessado através da porta 8000 no host.
+    volumes:
+      - .:/app # Monta o diretório atual no contêiner, permitindo que alterações no código sejam refletidas imediatamente no contêiner.
+    environment:
+      - DJANGO_DEBUG=1 # Define a variável de ambiente DJANGO_DEBUG como 1, habilitando o modo de depuração do Django.
+    stdin_open: true
+    tty: true
