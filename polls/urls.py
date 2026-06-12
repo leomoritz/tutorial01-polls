@@ -15,13 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
-"""A função path() espera pelo menos dois argumentos: a rota e a view. O include() permite referenciar outra configuração de URLs.
-A idéia por trás do include() é facilitar plugar URLs. Uma vez que polls está em sua própria URLconf (polls/urls.py), 
-ele pode ser colocado depois de “/polls/”, ou depois de “/fun_polls/”, u depois de “/content/polls/”, ou qualquer outro início de caminho, 
-e a aplicação ainda irá funcionar"""
+from polls import views
+
 urlpatterns = [
-    path("polls/", include("polls.urls")),
-    path('admin/', admin.site.urls),
+    path("", views.index, name="index"),
 ]

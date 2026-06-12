@@ -1,0 +1,1 @@
+"""Um arquivo vazio que diz ao Python que este diretório deve ser considerado um pacote Python -> https://docs.python.org/3/tutorial/modules.html#tut-packages"""

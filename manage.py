@@ -3,7 +3,10 @@
 import os
 import sys
 
-
+"""
+Um utilitário de linha de comando que permite a você interagir com esse projeto Django de várias maneiras.
+Você pode ler todos os detalhes sobre o manage.py em https://docs.djangoproject.com/pt-br/6.0/ref/django-admin/
+"""
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
