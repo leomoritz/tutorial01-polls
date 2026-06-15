@@ -12,8 +12,10 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
     
+    # https://docs.djangoproject.com/en/6.0/topics/i18n/timezones/
     def was_published_recently(self):
-        return self.pub_date >= (timezone.now() - datetime.timedelta(days=1)) # https://docs.djangoproject.com/en/6.0/topics/i18n/timezones/
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
     
     def has_choices(self):
         return self.choice_set.exists()
