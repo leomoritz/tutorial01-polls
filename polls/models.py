@@ -15,6 +15,9 @@ class Question(models.Model):
     def was_published_recently(self):
         return self.pub_date >= (timezone.now() - datetime.timedelta(days=1)) # https://docs.djangoproject.com/en/6.0/topics/i18n/timezones/
     
+    def has_choices(self):
+        return self.choice_set.exists()
+    
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
@@ -22,8 +25,13 @@ class Choice(models.Model):
     
     def __str__(self):
         return self.choice_text
+    
+    def has_votes(self):
+        return self.votes > 0
+    
+    def has_question(self):
+        return self.question is not None
 
 """ANOTAÇÕES
 1. É importante adicionar __str__()métodos aos seus modelos, não apenas para sua própria conveniência ao lidar com o prompt interativo, 
-mas também porque as representações dos objetos são usadas em todo o painel administrativo gerado automaticamente pelo Django.
-"""
+mas também porque as representações dos objetos são usadas em todo o painel administrativo gerado automaticamente pelo Django"""
