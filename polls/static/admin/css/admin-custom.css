@@ -1,0 +1,36 @@
+/* polls/static/admin/css/admin-custom.css */
+body {
+    background: #f2f7ff;
+}
+
+#header {
+    background-color: #0B2447;
+}
+
+#header h1 a {
+    color: #ffffff !important;
+}
+
+
+
+#user-tools a,
+#nav-sidebar .model a,
+#content-main a {
+    color: #ffd166;
+}
+
+.module {
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.dashboard-module .module h2 {
+    background: #144272;
+    color: #fff;
+}
+
+.submit-row input, .submit-row a {
+    background-color: #0B2447;
+    border-color: #0B2447;
+    color: #fff;
+}
